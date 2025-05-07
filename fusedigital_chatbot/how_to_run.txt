@@ -1,0 +1,125 @@
+Fuse Digital Website with AI Chatbot - Setup and Running Instructions
+
+1. Prerequisites:
+   - Node.js (v18 or higher) - Download from https://nodejs.org/
+   - npm (v9 or higher) - Comes with Node.js
+   - Google Gemini API key - Get from https://makersuite.google.com/app/apikey
+
+2. Project Structure (after unzipping):
+   - fused-digital-clone/ (Website)
+   - fusedigital_chatbot/ (Chatbot Server)
+
+3. Initial Setup:
+
+   a. Extract the zip file to your desired location
+   b. Open Terminal (Mac/Linux) or Command Prompt (Windows)
+   c. Navigate to the extracted folder:
+      cd path/to/extracted/folder
+
+4. Installation Steps:
+
+   a. Install Website Dependencies:
+      cd fused-digital-clone
+      npm install
+      (This may take a few minutes)
+
+   b. Install Chatbot Server Dependencies:
+      cd ../fusedigital_chatbot
+      npm install
+      (This may take a few minutes)
+
+5. Configuration:
+
+   a. Chatbot Server:
+      - Open fusedigital_chatbot/server/index.js in a text editor
+      - Find the line with 'YOUR_GEMINI_API_KEY'
+      - Replace it with your Google Gemini API key
+      - Save the file
+
+6. Running the Application:
+
+   a. Start the Chatbot Server (Terminal/Command Prompt 1):
+      cd fusedigital_chatbot
+      node server/index.js
+      You should see: "Server running on port 3001"
+      Keep this terminal window open
+
+   b. Start the Website (Terminal/Command Prompt 2):
+      cd ../fused-digital-clone
+      npm run dev
+      You should see: "Local: http://localhost:8080/"
+      Keep this terminal window open
+
+7. Accessing the Application:
+   - Open your web browser (Chrome/Firefox/Safari)
+   - Go to: http://localhost:8080
+   - Wait 3 seconds for the chatbot widget to appear in bottom right
+   - Start chatting!
+
+8. Testing the Chatbot:
+   Try these example questions:
+   - "What services do you offer?"
+   - "Tell me about your work"
+   - "How can I contact you?"
+   - "Tell me about your company"
+
+9. Troubleshooting:
+
+   a. If you see "EADDRINUSE: address already in use :::3001":
+      - On Mac/Linux: Run "lsof -i :3001" then "kill <process_id>"
+      - On Windows: Run "netstat -ano | findstr :3001" then "taskkill /PID <process_id> /F"
+      - Restart the chatbot server
+
+   b. If the chatbot is not responding:
+      - Make sure both terminal windows are running
+      - Check if you can access http://localhost:8080
+      - Verify your Gemini API key is correct
+      - Open browser's Developer Tools (F12) and check Console for errors
+
+10. Stopping the Application:
+    - Press Ctrl+C in both terminal windows
+    - Close both terminal windows
+
+11. Notes:
+    - Both servers must run simultaneously
+    - The chatbot uses predefined content, not live website scraping
+    - All responses are based on the website's content
+    - The chatbot will automatically scroll to relevant sections
+    - The website is responsive and works on all screen sizes
+
+12. Common Issues:
+    - If npm install fails, try:
+      * npm cache clean --force
+      * Delete node_modules folder
+      * Run npm install again
+    - If the website doesn't load:
+      * Check if port 8080 is available
+      * Try a different browser
+    - If the chatbot doesn't respond:
+      * Check if the chatbot server is running
+      * Verify your API key is correct
+      * Check your internet connection
+
+13. Features:
+   - The chatbot can answer questions about:
+     * Services
+     * Work/Portfolio
+     * About Us
+     * Contact Information
+   - Automatic scrolling to relevant sections
+   - Real-time responses using Gemini AI
+   - Responsive design for all screen sizes
+
+14. Development:
+   - Website code: fused-digital-clone/src/
+   - Chatbot code: fusedigital_chatbot/server/
+   - Main components:
+     * ChatWidget.tsx - Chat interface
+     * server/index.js - Chatbot server logic
+     * Index.tsx - Website layout
+
+15. Notes:
+    - The chatbot server must be running for the chat widget to function
+    - Both servers need to run simultaneously
+    - The chatbot uses local content from the server, not live website scraping
+    - All responses are based on the predefined website content 

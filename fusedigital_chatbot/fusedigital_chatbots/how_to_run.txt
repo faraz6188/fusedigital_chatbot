@@ -1,0 +1,98 @@
+Fuse AI Chatbot - Setup and Integration Guide
+===========================================
+
+1. Prerequisites
+---------------
+- Node.js (v14 or higher)
+- Python 3.7 or higher
+- npm (Node Package Manager)
+- pip (Python Package Installer)
+
+2. Installation Steps
+--------------------
+A. Extract the zip file to your desired location
+B. Open terminal/command prompt and navigate to the extracted folder
+C. Install Node.js dependencies:
+   ```bash
+   npm install
+   ```
+D. Install Python dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. Configuration
+---------------
+A. Create a .env file in the root directory with your OpenAI API key:
+   ```
+   GEMINI_API_KEY=your_api_key_here
+   ```
+
+4. Running the Application
+-------------------------
+A. Start the backend server:
+   ```bash
+   cd server
+   python index.py
+   ```
+B. In a new terminal, start the frontend:
+   ```bash
+   npm start
+   ```
+
+5. Integration with Websites
+---------------------------
+A. For Custom Websites:
+   1. Copy the following script tag to your website's HTML:
+      ```html
+      <script src="http://localhost:3000/chat-widget.js"></script>
+      ```
+   2. Add the following div where you want the chat widget to appear:
+      ```html
+      <div id="chat-widget"></div>
+      ```
+
+B. For WordPress Websites:
+   1. Install and activate the "Custom HTML" plugin
+   2. Add the following code to your theme's header.php or use a header/footer plugin:
+      ```html
+      <script src="http://localhost:3000/chat-widget.js"></script>
+      <div id="chat-widget"></div>
+      ```
+   3. Alternatively, you can use a WordPress plugin like "Header and Footer Scripts" to add the code
+
+6. Customization
+---------------
+A. To customize the chatbot's appearance:
+   1. Open src/components/ChatWidget.js
+   2. Modify the styles and colors as needed
+   3. Rebuild the application:
+      ```bash
+      npm run build
+      ```
+
+7. Deployment
+------------
+A. For production deployment:
+   1. Update the API endpoint in src/components/ChatWidget.js to point to your production server
+   2. Build the production version:
+      ```bash
+      npm run build
+      ```
+   3. Deploy the build folder to your web server
+   4. Update the script source in your website to point to the deployed location
+
+8. Troubleshooting
+-----------------
+- If the chat widget doesn't appear, check browser console for errors
+- Ensure both frontend and backend servers are running
+- Verify your OpenAI API key is correct
+- Check CORS settings if accessing from a different domain
+
+9. Support
+---------
+For any issues or questions, please contact:
+- Email: support@fusedigital.com
+- Website: www.fusedigital.com
+
+Note: Make sure to replace 'localhost:3000' with your actual domain when deploying to production. 
